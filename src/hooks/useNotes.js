@@ -17,5 +17,5 @@ export default function useNotes() {
         setNotes((prev)=> prev.filter((note)=> note.id !== id))
     }
 
-    return {notes, addnote, deleteNote}
+    return {notes, addNote, deleteNote}
 }
