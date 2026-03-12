@@ -1,39 +1,34 @@
-import { useState, useContext } from "react";
-import useNotes from "../hooks/useNotes";
-import { ColorContext } from "../context/ColorContext";
-import note from "./Note"
+import { useState, useContext } from "react"
+import useNotes from "../hooks/useNotes"
+import { ColorContext } from "../context/ColorContext"
+import Note from "./Note"
 
 export default function NoteBoard() {
-    const {notes, addNote, deleteNote} = useNotes()
-    const {color} = useContext(ColorContext)
+  const { notes, addNote, deleteNote } = useNotes()
+  const { color } = useContext(ColorContext)
 
-    const[text, setText] = useState("")
+  const [text, setText] = useState("")
 
-    const handleAdd = () => {
-        if(!text.trim()) return
+  const handleAdd = () => {
+    if (!text.trim()) return
+    addNote(text, color)
+    setText("")
+  }
 
-        addNote(text, color)
-        setText("")
-    }
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Escribe una nota..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
 
-    return(
-        <div>
-            <h2>Notas</h2>
+      <button onClick={handleAdd}>Añadir</button>
 
-            <input
-                type="text"
-                placeholder="Escribe la nota..."
-                value={text}
-                onChange={(e)=> setText(e.target.value)}
-            />
-
-            <button onClick={handleAdd}>Añadir</button>
-
-            <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-                 {notes.map((note) => (
-                <Note key={note.id} note={note} deleteNote={deleteNote} />
-        ))}
-      </div>
+      {notes.map((note) => (
+        <Note key={note.id} note={note} deleteNote={deleteNote} />
+      ))}
     </div>
   )
 }
