@@ -27,7 +27,13 @@ export default function NoteBoard() {
                 onChange={(e)=> setText(e.target.value)}
             />
 
-            <button>Añadir</button>
-        </div>
-    )
+            <button onClick={handleAdd}>Añadir</button>
+
+            <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
+                 {notes.map((note) => (
+                <Note key={note.id} note={note} deleteNote={deleteNote} />
+        ))}
+      </div>
+    </div>
+  )
 }
