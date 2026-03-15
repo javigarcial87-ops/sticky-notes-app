@@ -6,13 +6,11 @@ export default function ColorSelector() {
 
     return (
         <div>
-            <label> Color por defecto: </label>
+            <label> Elige el color de tu nota </label>
             <input
                 type="color"
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
-            
-            
             />
 
 
