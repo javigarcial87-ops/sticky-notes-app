@@ -5,6 +5,7 @@ export default function Note({ note, deleteNote }) {
         backgroundColor: note.color,
         padding: "10px",
         width: "150px",
+        border: "1px solid black",
         borderRadius: "5px",
         boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
         textAlign: "center",
