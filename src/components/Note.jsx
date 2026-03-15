@@ -10,11 +10,10 @@ export default function Note({ note, deleteNote }) {
         textAlign: "center",
         fontFamily: "Helvetica",
         fontWeight: "bolder",
-        marginTop: "10px"
+        margin: "10px auto"
       }}
     >
       <p>{note.text}</p>
-      
 
       <button onClick={() => deleteNote(note.id)}>Eliminar</button>
     </div>
