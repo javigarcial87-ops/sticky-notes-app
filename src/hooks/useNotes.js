@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {v4 as uuidv4} from "uuid";
 
 export default function useNotes() {
-    const [notes, setNotes] =useState([])
+    const [notes, setNotes] = useState(() => {
+        const saved = localStorage.getItem("notes")
+        return saved ? JSON.parse(saved) : []
+    })
+
+    useEffect(()=> {
+        localStorage.setItem("notes", JSON.stringify(notes))
+    },[notes])
+
 
     const addNote =(text, color) => {
         const newNote = {
