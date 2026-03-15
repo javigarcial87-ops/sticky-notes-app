@@ -6,11 +6,19 @@ export default function ColorSelector() {
 
     return (
         <div>
-            <label> Elige el color de tu nota </label>
+            <label> Elige el color de la nota </label>
             <input
                 type="color"
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
+                style={{
+                    width: "40px",
+                    height: "40px",
+                    border: "none",
+                    cursor: "pointer",
+                    background: "none",
+                    marginBottom: "10px"
+        }}
             />
 
 
